@@ -2,12 +2,14 @@ let loaders = require('./webpack.config.loaders')();
 let path = require('path');
 
 module.exports = {
-    entry: './src/index.js',
+    entry: [
+        'react-hot-loader/patch',
+        path.join(__dirname, 'src', 'index.js')],
     output: {
         filename: 'bundle.js',
-        path: path.resolve('dist'),
+        path: path.resolve('public'),
     },
     module: {
         loaders
-    },
+    }
 };
